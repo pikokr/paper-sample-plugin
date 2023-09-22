@@ -43,7 +43,7 @@ extra.apply {
 
         if (group == "org.jetbrains.kotlin" && version == null) {
             version = getKotlinPluginVersion()
-        } else if (group == "io.github.monun.tap" && name.endsWith("-api")) {
+        } else if (group == "io.github.monun" && name.endsWith("-api")) {
             name = name.removeSuffix("api") + "core"
         }
 
