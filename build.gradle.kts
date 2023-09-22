@@ -68,14 +68,16 @@ tasks {
         from(jar)
 
         val plugins = file(".server/plugins")
+        val updateDir = plugins.resolve("update")
 
         if (plugins.resolve("${project.name}-$version-dev.jar").exists()) {
-            val updateDir = plugins.resolve("update")
             into(updateDir)
-
-            delete(updateDir.resolve("RELOAD"))
         } else {
             into(plugins)
+        }
+
+        doLast {
+            delete(updateDir.resolve("RELOAD"))
         }
     }
 }
